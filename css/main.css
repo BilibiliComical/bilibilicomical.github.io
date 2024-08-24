@@ -1,0 +1,7 @@
+*{
+    background-image: url(../image/background/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #68b1db;
+}
