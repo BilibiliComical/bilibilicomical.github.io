@@ -13,11 +13,28 @@
     <a href="../index.html" >
         <img src="../image/icon/diamond_pickaxe-225.png" alt="返回主页" style="width: 5vw; margin-top: 2vw; margin-left: 2vw;">
     </a>
-    <div style="display: flex; position: relative;">
-        <a href="./unlock-music-modern/index.html" class="left25">
-            <img src="../image/button/unlock-music.png" alt="UnlockMusic" style="width: 15vw;">
-        </a>
-        <p class="description">音乐解锁:在浏览器中解锁加密的音乐文件<br>支持网易云音乐(ncm), QQ音乐(qmc, mflac, mgg), 酷狗音乐(kgm), 虾米音乐(xm), 酷我音乐(.kwm)等</p>
+    <div class=".container" id="container">
+        <div style="display: flex; position: relative;" class="content">
+            <a href="./unlock-music-modern/index.html" class="left25">
+                <img src="../image/button/web-app/unlock-music.png" alt="UnlockMusic" style="width: 15vw;">
+            </a>
+            <p class="description">音乐解锁:在浏览器中解锁加密的音乐文件，支持网易云音乐(ncm)，QQ音乐(qmc, mflac, mgg)，酷狗音乐(kgm)，虾米音乐(xm)，酷我音乐(.kwm)等</p>
+        </div>
     </div>
+    <script>
+        function adjustheight() {
+            var container = document.getElementById('container');
+            var content = document.querySelector('.content');
+            if (content) {
+                var contentheight = content.scrollHeight
+                var padding = 20
+                container.style.height = (content.scrollHeight + padding * 2) + 'px'
+            }
+        }
+
+        adjustheight();
+
+        window.addEventListener('resize', adjustheight);
+    </script>
 </body>
 </html>

@@ -11,6 +11,7 @@
 .description{
     line-height: 2vw;
     left: 35%;
+    width: 60vw;
     position:absolute;
     font-size: 1.5vw;
     display: flex;

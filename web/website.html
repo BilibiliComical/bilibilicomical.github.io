@@ -13,11 +13,38 @@
     <a href="../index.html" >
         <img src="../image/icon/diamond_pickaxe-225.png" alt="返回主页" style="width: 5vw; margin-top: 2vw; margin-left: 2vw;">
     </a>
-    <div style="display: flex; position: relative;">
-        <a href="https://tool.liumingye.cn/music/#/" class="left25">
-            <img src="../image/button/freemusic.png" alt="FreeMusic" style="width: 15vw;">
-        </a>
-        <p class="description">FreeMusic:免费提供许多歌曲的.mp3音频文件，素材由网络收集，含部分广告作为建站基本需要<br>建议加入广告拦截白名单，up本人已加</p>
+    <div class="container" id="container">
+        <div style="display: flex; position: relative;" class="content">
+            <a href="https://tool.liumingye.cn/music/#/" class="left25">
+                <img src="../image/button/website/freemusic.png" alt="FreeMusic" style="width: 15vw;">
+            </a>
+            <p class="description">FreeMusic:免费提供许多歌曲的.mp3音频文件，素材由网络收集，含部分广告作为建站基本需要建议加入广告拦截白名单，up本人已加</p>
+        </div>
+        
     </div>
+    <!-- <hr style="width: 80vw;"> -->
+    <div class="container" id="container">
+        <div style="display: flex; position: relative;" class="content">
+            <a href="https://imagestool.com/zh_CN/" class="left25">
+                <img src="../image/button/website/imagetools.png" alt="FreeMusic" style="width: 15vw;">
+            </a>
+            <p class="description">ImagesTool:拥有多款批量处理图片的在线工具，满足您转换图片、压缩图片、裁剪图片的需求,导入的文件始终在您的设备上，不会上传</p>
+        </div>
+    </div>
+    <script>
+        function adjustheight() {
+            var container = document.getElementById('container');
+            var content = document.querySelector('.content');
+            if (content) {
+                var contentheight = content.scrollHeight
+                var padding = 20
+                container.style.height = (content.scrollHeight + padding * 2) + 'px'
+            }
+        }
+
+        adjustheight();
+
+        window.addEventListener('resize', adjustheight);
+    </script>
 </body>
 </html>
