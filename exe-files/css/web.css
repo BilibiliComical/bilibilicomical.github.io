@@ -1,0 +1,32 @@
+.left25{
+    width: 15vw;
+    height: auto;
+    left: 25%;
+    margin-left: -7.5vw;
+    position: absolute;
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+}
+.description{
+    height: 2vw;
+    line-height: 2vw;
+    left: 35%;
+    width: 60vw;
+    position:absolute;
+    font-size: 1.5vw;
+    display: flex;
+    margin-top: 0.5vw;
+    color: rgba(255, 255, 255, 0.80);
+}
+.support{
+    height: 2vw;
+    line-height: 2vw;
+    left: 35%;
+    width: 60vw;
+    position:absolute;
+    font-size: 1.5vw;
+    display: flex;
+    margin-top: 0.5vw;
+    color: rgba(0, 0, 255, 0.75)
+}

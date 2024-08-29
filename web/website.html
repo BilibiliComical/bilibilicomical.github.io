@@ -4,33 +4,40 @@
     <link rel="icon" href="../image/icon/web.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="大滑稽Comical的主页，用于收藏各种工具与网页，以及B站视频中提到的资源">
     <title>滑稽收藏站——实用网页</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/app-web.css">
+    <link rel="stylesheet" href="../css/web.css">
 </head>
 <body>
+
+    <!-- 返回主页 -->
     <a href="../index.html" >
         <img src="../image/icon/diamond_pickaxe-225.png" alt="返回主页" style="width: 5vw; margin-top: 2vw; margin-left: 2vw;">
     </a>
-    <div class="container" id="container">
-        <div style="display: flex; position: relative;" class="content">
-            <a href="https://tool.liumingye.cn/music/#/" class="left25">
-                <img src="../image/button/website/freemusic.png" alt="FreeMusic" style="width: 15vw;">
-            </a>
-            <p class="description">FreeMusic:免费提供许多歌曲的.mp3音频文件，素材由网络收集，含部分广告作为建站基本需要建议加入广告拦截白名单，up本人已加</p>
+
+    <!-- 内容 -->
+    <div>
+        <div class="container lazy-load" id="container" >
+            <div style="display: flex; position: relative;" class="content">
+                <a href="https://tool.liumingye.cn/music/#/" class="left25">
+                    <img src="./image/button/freemusic.png" alt="FreeMusic" style="width: 15vw;">
+                </a>
+                <p class="description">FreeMusic:免费提供许多歌曲的.mp3音频文件，素材由网络收集，含部分广告作为建站基本需要建议加入广告拦截白名单，up本人已加</p>
+            </div>
         </div>
-        
-    </div>
-    <!-- <hr style="width: 80vw;"> -->
-    <div class="container" id="container">
-        <div style="display: flex; position: relative;" class="content">
-            <a href="https://imagestool.com/zh_CN/" class="left25">
-                <img src="../image/button/website/imagetools.png" alt="FreeMusic" style="width: 15vw;">
-            </a>
-            <p class="description">ImagesTool:拥有多款批量处理图片的在线工具，满足您转换图片、压缩图片、裁剪图片的需求,导入的文件始终在您的设备上，不会上传</p>
+        <div class="container lazy-load" id="container">
+            <div style="display: flex; position: relative;" class="content">
+                <a href="https://imagestool.com/zh_CN/" class="left25">
+                    <img src="./image/button/imagetools.png" alt="ImagesTool" style="width: 15vw;">
+                </a>
+                <p class="description">ImagesTool:拥有多款批量处理图片的在线工具，满足您转换图片、压缩图片、裁剪图片的需求,导入的文件始终在您的设备上，不会上传</p>
+            </div>
         </div>
     </div>
+
+    <!-- 自动div行高 -->
     <script>
         function adjustheight() {
             var container = document.getElementById('container');
@@ -45,6 +52,44 @@
         adjustheight();
 
         window.addEventListener('resize', adjustheight);
+    </script>
+    <script>
+        function checkVisibility() {
+        var lazyLoadEls = document.querySelectorAll('.lazy-load');
+        lazyLoadEls.forEach(function(el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+            el.style.display = 'block';
+            el.style.opacity = '1';
+            }
+        });
+        }
+
+        // 监听页面滚动事件
+        window.addEventListener('scroll', checkVisibility);
+
+        // 初次加载页面时也检查一次
+        checkVisibility();
+
+        let lazyLoadEls = document.querySelectorAll('.lazy-load');
+
+        let observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+            let lazyLoadEl = entry.target;
+            lazyLoadEl.style.display = 'block';
+            lazyLoadEl.style.opacity = '1';
+            observer.unobserve(lazyLoadEl);
+            }
+        });
+        }, {
+        root: null, // 使用浏览器视窗作为视窗
+        threshold: 0.1 // 10%的元素可见时触发
+        });
+
+        lazyLoadEls.forEach(function(el) {
+        observer.observe(el);
+        });
     </script>
 </body>
 </html>
